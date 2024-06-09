@@ -1,0 +1,47 @@
+﻿<Page x:Class="InsuranceCompany.Pages.PersonalRoomPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:InsuranceCompany.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Личный кабинет">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+        <StackPanel>
+            <TextBlock FontSize="22">Информация о аккаунте</TextBlock>
+            <TextBlock Text="{Binding FullName, StringFormat=ФИО: {0}}"></TextBlock>
+            <TextBlock Text="{Binding DateOfBirth, StringFormat=Дата рождения: {0:dd.MM.yyyy}}"></TextBlock>
+            <TextBlock Text="{Binding Genre.Name, StringFormat=Пол: {0}}"></TextBlock>
+            <TextBlock Text="{Binding Address, StringFormat=Адрес: {0}}"></TextBlock>
+            <TextBlock Text="{Binding Telephone, StringFormat=Телефон: {0}}"></TextBlock>
+            <TextBlock Text="{Binding Passport, StringFormat=Паспорт: {0}}"></TextBlock>
+            <TextBlock Text="{Binding Role.Name, StringFormat=Роль в системе: {0}}"></TextBlock>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.ColumnSpan="3" x:Name="PoliciesStackPanel">
+            <TextBlock Text="Мои полисы" FontSize="22"></TextBlock>
+            <DataGrid Grid.Row="1" Margin="10" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" x:Name="MainDataGrid">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Width="*" Header="Номер" Binding="{Binding Number}"></DataGridTextColumn>
+                    <DataGridTextColumn Width="*" Header="Дата получения" Binding="{Binding StartDate, StringFormat=dd.MM.yyyy}"></DataGridTextColumn>
+                    <DataGridTextColumn Width="*" Header="Дата окончания" Binding="{Binding EndDate, StringFormat=dd.MM.yyyy}"></DataGridTextColumn>
+                    <DataGridTextColumn Width="*" Header="Цена" Binding="{Binding Price}"></DataGridTextColumn>
+                    <DataGridTextColumn Width="*" Header="Сумма выплаты" Binding="{Binding PaymentAmount}"></DataGridTextColumn>
+                    <DataGridTextColumn Width="*" Header="Вид" Binding="{Binding Type.Name}"></DataGridTextColumn>
+                    <DataGridTextColumn Width="*" Header="Отметка о получении выплат" Binding="{Binding PaymentMark}"></DataGridTextColumn>
+                    <DataGridTextColumn Width="*" Header="Сотрудник" Binding="{Binding Employee.User.FullName}"></DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+    </Grid>
+</Page>

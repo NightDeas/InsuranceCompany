@@ -1,0 +1,79 @@
+﻿<Page x:Class="InsuranceCompany.Pages.PolicyPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:InsuranceCompany.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Полисы" Loaded="Page_Loaded">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="103"/>
+            <RowDefinition/>
+            <RowDefinition Height="60"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal">
+            <StackPanel VerticalAlignment="Center" Width="200">
+                <TextBlock Text="Сортировать" HorizontalAlignment="Center" FontSize="16"></TextBlock>
+                <ComboBox SelectionChanged="ComboBoxSort_SelectionChanged">
+                    <ComboBoxItem Content="По умолчанию" ></ComboBoxItem>
+                    <ComboBoxItem Content="По номеру(по возрастанию)" Tag="Sort.fioUp"></ComboBoxItem>
+                    <ComboBoxItem Content="По номеру(по убыванию)"></ComboBoxItem>
+                    <ComboBoxItem Content="По дате получения(по возрастанию)"></ComboBoxItem>
+                    <ComboBoxItem Content="По дате получения(по убыванию)"></ComboBoxItem>
+                    <ComboBoxItem Content="По дате окончания(по возрастанию)"></ComboBoxItem>
+                    <ComboBoxItem Content="По дате окончания(по убыванию)"></ComboBoxItem>
+                </ComboBox>
+                <TextBlock Text="Поиск" HorizontalAlignment="Center" FontSize="16"></TextBlock>
+                <TextBox x:Name="SearchTb" TextChanged="SearchTb_TextChanged"></TextBox>
+            </StackPanel>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="1*" />
+                </Grid.RowDefinitions>
+                <TextBlock Text="Фильтры" HorizontalAlignment="Center" FontSize="16"></TextBlock>
+                <StackPanel Orientation="Horizontal" Grid.Row="1">
+                    <StackPanel Margin="5" Width="150">
+                        <TextBlock HorizontalAlignment="Center" Text="По виду полиса"></TextBlock>
+                        <ComboBox x:Name="TypeFilterCb" DisplayMemberPath="Name" SelectedValuePath="Id" SelectionChanged="TypeFilterCb_SelectionChanged"></ComboBox>
+                    </StackPanel>
+                    <StackPanel Margin="5" Width="150">
+                        <TextBlock HorizontalAlignment="Center" Text="По сотруднику"></TextBlock>
+                        <ComboBox x:Name="EmployeeFilterCb" DisplayMemberPath="FullName" SelectedValuePath="Id" SelectionChanged="EmployeeFilterCb_SelectionChanged"></ComboBox>
+                    </StackPanel>
+                    <StackPanel Margin="5" Width="150">
+                        <TextBlock HorizontalAlignment="Center" Text="По клиенту"></TextBlock>
+                        <ComboBox x:Name="ClientFilterCb" DisplayMemberPath="FullName" SelectedValuePath="Id" SelectionChanged="ClientFilterCb_SelectionChanged"></ComboBox>
+                    </StackPanel>
+                    <Button Content="Сбросить фильтры" x:Name="ClearFilterBtn" Click="ClearFilterBtn_Click"></Button>
+                </StackPanel>
+            </Grid>
+        </StackPanel>
+        <DataGrid Grid.Row="1" Margin="10" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" x:Name="MainDataGrid">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="*" Header="Номер" Binding="{Binding Number}"></DataGridTextColumn>
+                <DataGridTextColumn Width="*" Header="Дата получения" Binding="{Binding StartDate, StringFormat=dd.MM.yyyy}"></DataGridTextColumn>
+                <DataGridTextColumn Width="*" Header="Дата окончания" Binding="{Binding EndDate, StringFormat=dd.MM.yyyy}"></DataGridTextColumn>
+                <DataGridTextColumn Width="*" Header="Цена" Binding="{Binding Price}"></DataGridTextColumn>
+                <DataGridTextColumn Width="*" Header="Сумма выплаты" Binding="{Binding PaymentAmount}"></DataGridTextColumn>
+                <DataGridTextColumn Width="*" Header="Вид" Binding="{Binding Type.Name}"></DataGridTextColumn>
+                <DataGridTextColumn Width="*" Header="Отметка о получении выплат" Binding="{Binding PaymentMark}"></DataGridTextColumn>
+                <DataGridTextColumn Width="*" Header="Клиент" Binding="{Binding Client.User.FullName}"></DataGridTextColumn>
+                <DataGridTextColumn Width="*" Header="Сотрудник" Binding="{Binding Employee.User.FullName}"></DataGridTextColumn>
+                <DataGridTemplateColumn Header="Редактирование" Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="EditBtn" Content="Редактировать" Click="EditBtn_Click"></Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Grid Grid.Row="2">
+            <Button Content="Добавить" Margin="20,5" x:Name="AddBtn" Click="AddBtn_Click"></Button>
+        </Grid>
+    </Grid>
+</Page>
