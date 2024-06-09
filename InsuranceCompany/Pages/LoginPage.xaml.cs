@@ -27,8 +27,6 @@ namespace InsuranceCompany.Pages
             InitializeComponent();
             App.MainWindow.MenuStackPanel.Visibility = Visibility.Collapsed;
             App.MainWindow.MainGrid.ColumnDefinitions[0].Width = new GridLength(0);
-            PasswordPb.Password = "pass1";
-            LoginTb.Text = "log1";
         }
 
         private void BtnLogin_Click(object sender, RoutedEventArgs e)
@@ -50,6 +48,7 @@ namespace InsuranceCompany.Pages
             App.MainWindow.MainFrame.Navigate(new Pages.MenuPage());
             App.MainWindow.MenuStackPanel.Visibility = Visibility.Visible;
             App.MainWindow.MainGrid.ColumnDefinitions[0].Width = new GridLength(200);
+            App.MainWindow.GetAccess();
 
         }
     }

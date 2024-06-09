@@ -6,8 +6,12 @@
       xmlns:local="clr-namespace:InsuranceCompany.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Личный кабинет">
-
+      Title="Личный кабинет" Loaded="Page_Loaded">
+    <Page.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontSize" Value="16"></Setter>
+        </Style>
+    </Page.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*" />
@@ -15,21 +19,19 @@
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*" />
-            <ColumnDefinition Width="1*" />
-            <ColumnDefinition Width="1*" />
         </Grid.ColumnDefinitions>
         <StackPanel>
-            <TextBlock FontSize="22">Информация о аккаунте</TextBlock>
-            <TextBlock Text="{Binding FullName, StringFormat=ФИО: {0}}"></TextBlock>
-            <TextBlock Text="{Binding DateOfBirth, StringFormat=Дата рождения: {0:dd.MM.yyyy}}"></TextBlock>
-            <TextBlock Text="{Binding Genre.Name, StringFormat=Пол: {0}}"></TextBlock>
-            <TextBlock Text="{Binding Address, StringFormat=Адрес: {0}}"></TextBlock>
-            <TextBlock Text="{Binding Telephone, StringFormat=Телефон: {0}}"></TextBlock>
-            <TextBlock Text="{Binding Passport, StringFormat=Паспорт: {0}}"></TextBlock>
-            <TextBlock Text="{Binding Role.Name, StringFormat=Роль в системе: {0}}"></TextBlock>
+            <TextBlock Foreground="{StaticResource MainColor}" FontSize="22">Информация о аккаунте</TextBlock>
+            <TextBlock Foreground="{StaticResource SecondColor}" Text="{Binding FullName, StringFormat=ФИО: {0}}"></TextBlock>
+            <TextBlock Foreground="{StaticResource SecondColor}" Text="{Binding DateOfBirth, StringFormat=Дата рождения: {0:dd.MM.yyyy}}"></TextBlock>
+            <TextBlock Foreground="{StaticResource SecondColor}" Text="{Binding Genre.Name, StringFormat=Пол: {0}}"></TextBlock>
+            <TextBlock Foreground="{StaticResource SecondColor}" Text="{Binding Address, StringFormat=Адрес: {0}}"></TextBlock>
+            <TextBlock Foreground="{StaticResource SecondColor}" Text="{Binding Telephone, StringFormat=Телефон: {0}}"></TextBlock>
+            <TextBlock Foreground="{StaticResource SecondColor}" Text="{Binding Passport, StringFormat=Паспорт: {0}}"></TextBlock>
+            <TextBlock Foreground="{StaticResource SecondColor}" Text="{Binding Role.Name, StringFormat=Роль в системе: {0}}"></TextBlock>
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.ColumnSpan="3" x:Name="PoliciesStackPanel">
-            <TextBlock Text="Мои полисы" FontSize="22"></TextBlock>
+            <TextBlock Foreground="{StaticResource MainColor}" Text="Мои полисы" FontSize="22"></TextBlock>
             <DataGrid Grid.Row="1" Margin="10" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" x:Name="MainDataGrid">
                 <DataGrid.Columns>
                     <DataGridTextColumn Width="*" Header="Номер" Binding="{Binding Number}"></DataGridTextColumn>

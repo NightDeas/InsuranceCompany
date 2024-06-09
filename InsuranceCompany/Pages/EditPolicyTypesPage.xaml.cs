@@ -25,9 +25,9 @@ namespace InsuranceCompany.Pages
         public EditPolicyTypesPage(Entities.PolicyType policyType)
         {
             InitializeComponent();
+            PolicyType = policyType;
             if (PolicyType == null)
                 PolicyType = new();
-            PolicyType = policyType;
             DataContext = PolicyType;
         }
 

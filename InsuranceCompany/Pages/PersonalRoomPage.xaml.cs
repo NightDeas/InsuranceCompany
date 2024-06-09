@@ -46,5 +46,10 @@ namespace InsuranceCompany.Pages
                 PoliciesStackPanel.Visibility = Visibility.Collapsed;
             }
         }
+
+		private void Page_Loaded(object sender, RoutedEventArgs e)
+		{
+
+        }
     }
 }

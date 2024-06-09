@@ -9,7 +9,7 @@ public partial class ClientGroup
 
     public string Name { get; set; } = null!;
 
-    public string Desctiption { get; set; } = null!;
+    public string Description { get; set; } = null!;
 
     public virtual ICollection<Client> Clients { get; set; } = new List<Client>();
 }

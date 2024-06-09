@@ -26,9 +26,16 @@ namespace InsuranceCompany.Pages
         public EditRiskPage(Entities.Risk risk)
         {
             InitializeComponent();
-            if (Risk == null)
-                Risk = new();
             Risk = risk;
+            if (Risk == null)
+            {
+                Risk = new();
+                DeleteBtn.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+				DeleteBtn.Visibility = Visibility.Visible;
+			}
             DataContext = Risk;
         }
 
@@ -41,6 +48,11 @@ namespace InsuranceCompany.Pages
                 string.IsNullOrEmpty(Risk.AverageProbability.ToString()))
             {
                 MessageBox.Show("Не все поля заполнены");
+                return;
+            }
+            if (Risk.AverageProbability < 0 || Risk.AverageProbability > 1)
+            {
+                MessageBox.Show("Вероятность не может быть больше 1 или меньше 0");
                 return;
             }
             Entities.Context context = new();

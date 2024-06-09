@@ -10,10 +10,10 @@
 
     <Grid>
         <StackPanel MinWidth="150" MaxWidth="250" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBlock FontSize="24" Margin="10,5" HorizontalAlignment="Center" Text="Авторизация"></TextBlock>
-            <TextBlock FontSize="16" Margin="10,5" HorizontalAlignment="Center" Text="Логин"></TextBlock>
+            <TextBlock Foreground="{StaticResource MainColor}" FontFamily="Tw Cen MT" FontSize="24" Margin="10,5" HorizontalAlignment="Center" Text="Авторизация"></TextBlock>
+            <TextBlock Foreground="{StaticResource SecondColor}" FontSize="16" Margin="10,5" HorizontalAlignment="Center" Text="Логин"></TextBlock>
             <TextBox FontSize="16" Margin="10,5" x:Name="LoginTb"></TextBox>
-            <TextBlock FontSize="16" Margin="10,5" HorizontalAlignment="Center" Text="Пароль"></TextBlock>
+            <TextBlock Foreground="{StaticResource SecondColor}" FontSize="16" Margin="10,5" HorizontalAlignment="Center" Text="Пароль"></TextBlock>
             <PasswordBox FontSize="16" Margin="10,5" x:Name="PasswordPb"></PasswordBox>
             <Button FontSize="16" Margin="10,5" x:Name="BtnLogin" Content="Вход" Click="BtnLogin_Click"></Button>
         </StackPanel>

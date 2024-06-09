@@ -124,7 +124,12 @@ namespace InsuranceCompany.Pages
 
         private void DeleteBtn_Click(object sender, RoutedEventArgs e)
         {
-            var result = MessageBox.Show("Действительно удалить?", "Предупреждение", MessageBoxButton.YesNo);
+			if (App.User.RoleId != 3)
+			{
+				MessageBox.Show("Недостаточно прав для удаления полиса");
+				return;
+			}
+			var result = MessageBox.Show("Действительно удалить?", "Предупреждение", MessageBoxButton.YesNo);
             if (result != MessageBoxResult.Yes)
                 return;
             Entities.Context context = new();

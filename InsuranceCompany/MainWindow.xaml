@@ -5,16 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InsuranceCompany"
         mc:Ignorable="d"
-        Title="РАБОТА ВЫПОЛНЕНА БУРНАСОВЫМ СЕРГЕЕМ" Height="450" Width="800">
+        Title="Страховая компания" Height="450" Width="800">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="60"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         
-        <TextBlock VerticalAlignment="Bottom" Panel.ZIndex="3" FontSize="48" Text="Разработчик: Бурнасов Сергей" Foreground="Gray" IsHitTestVisible="False" Grid.RowSpan="10"></TextBlock>
         
-        <TextBlock x:Name="TitleTb" Text="{Binding ElementName=MainFrame, Path=Content.Title, TargetNullValue=ff}" VerticalAlignment="Center" FontSize="22" Foreground="Green" Margin="10,0"></TextBlock>
+        <TextBlock Foreground="{StaticResource AccentColor}" FontWeight="Bold" x:Name="TitleTb" Text="{Binding ElementName=MainFrame, Path=Content.Title, TargetNullValue=ff}" VerticalAlignment="Center" FontSize="22" Margin="10,0"></TextBlock>
         <Button Click="BackBtn_Click" x:Name="BackBtn" Content="Выход из учетной записи" Padding="20,10" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,0"></Button>
         <Grid x:Name="MainGrid" ShowGridLines="False" Grid.Row="1">
             <Grid.ColumnDefinitions>
@@ -28,7 +27,7 @@
                         <Setter Property="Padding" Value="10,5"></Setter>
                     </Style>
                 </StackPanel.Resources>
-                <TextBlock HorizontalAlignment="Center" FontSize="16" Text="Меню"></TextBlock>
+                <TextBlock Foreground="{StaticResource MainColor}" HorizontalAlignment="Center" FontSize="16" Text="Меню"></TextBlock>
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
                     <StackPanel>
                         <Button x:Name="AccountBtn" Content="Личный кабинет" Click="AccountBtn_Click"></Button>
@@ -37,7 +36,7 @@
                         <Button x:Name="PolicyBtn" Content="Полисы" Click="PolicyBtn_Click"></Button>
                         <Button x:Name="PolicyTypeBtn" Content="Виды полисов" Click="PolicyTypeBtn_Click"></Button>
                         <Button x:Name="RiskBtn" Content="Риски" Click="RiskBtn_Click"></Button>
-                        <Button x:Name="GroupClientBtn" Content="Группы клиентов"></Button>
+                        <Button x:Name="GroupClientBtn" Content="Группы клиентов" Click="GroupClientBtn_Click"></Button>
                     </StackPanel>
                 </ScrollViewer>
             </StackPanel>

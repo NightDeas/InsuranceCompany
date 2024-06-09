@@ -74,7 +74,11 @@ namespace InsuranceCompany.Pages
                     return _risks = _risks.OrderBy(x => x.Name).ToList();
                 case Sort.NameDown:
                     return _risks = _risks.OrderByDescending(x => x.Name).ToList();
-                default:
+				case Sort.AverageUp:
+					return _risks = _risks.OrderBy(x => x.AverageProbability).ToList();
+				case Sort.AverageDown:
+					return _risks = _risks.OrderByDescending(x => x.AverageProbability).ToList();
+				default:
                     throw new Exception("Нету сортировки");
             }
         }
@@ -109,7 +113,13 @@ namespace InsuranceCompany.Pages
                 case 2:
                     _sort = Sort.NameDown;
                     break;
-            }
+				case 3:
+					_sort = Sort.AverageUp;
+					break;
+				case 4:
+					_sort = Sort.AverageDown;
+					break;
+			}
             SortList();
             GenerateTable();
         }
@@ -119,6 +129,8 @@ namespace InsuranceCompany.Pages
             None,
             NameUp,
             NameDown,
+            AverageUp,
+            AverageDown,
 
         }
 

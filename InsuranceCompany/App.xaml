@@ -4,6 +4,11 @@
              xmlns:local="clr-namespace:InsuranceCompany"
              Startup="Application_Startup">
     <Application.Resources>
-         
+        <SolidColorBrush x:Key="MainColor" Color="#FF37474F" ></SolidColorBrush>
+        <SolidColorBrush x:Key="SecondColor" Color="#FF788C9C" ></SolidColorBrush>
+        <SolidColorBrush x:Key="AccentColor" Color="#FFFF9C1A" ></SolidColorBrush>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Tw Cen MT"></Setter>
+        </Style>
     </Application.Resources>
 </Application>

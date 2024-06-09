@@ -111,6 +111,11 @@ namespace InsuranceCompany.Pages
 
         private void DeleteBtn_Click(object sender, RoutedEventArgs e)
         {
+            if (App.User.RoleId != 3)
+            {
+                MessageBox.Show("Недостаточно прав для удаления клиента");
+                return;
+            }
             var result = MessageBox.Show("Действительно удалить?", "Предупреждение", MessageBoxButton.YesNo);
             if (result != MessageBoxResult.Yes)
                 return;
